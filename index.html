@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>J.P. Bergman & Company — Independent Mortgage Advisers</title>
+<meta name="description" content="Independent mortgage broking for Melbourne families, investors, and businesses. No bank ownership. Est. 2004."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --fg:#1a2e1a;
+  --fg2:#243824;
+  --fg3:#2e4a2e;
+  --moss:#4a6741;
+  --sage:#8aaa7a;
+  --sage2:#b5cca8;
+  --sage3:#d4e5c8;
+  --cream:#f8f6f1;
+  --cream2:#f0ece3;
+  --cream3:#e8e1d4;
+  --stone:#c8c0b0;
+  --white:#fdfcfa;
+  --text:#1e1c18;
+  --text2:#3a3730;
+  --muted:#7a7468;
+  --muted2:#a09890;
+  --border:rgba(26,46,26,.1);
+  --borderl:rgba(26,46,26,.06);
+}
+html{scroll-behavior:smooth}
+body{font-family:"Figtree",sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;font-weight:400}
+
+/* GRAIN */
+body::after{content:"";position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9900;opacity:.5}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.8rem 4rem;display:flex;align-items:center;justify-content:space-between;transition:all .4s}
+nav.s{background:rgba(248,246,241,.96);backdrop-filter:blur(24px);border-bottom:1px solid var(--borderl);padding:1.1rem 4rem;box-shadow:0 2px 40px rgba(26,46,26,.05)}
+.brand{text-decoration:none;display:flex;flex-direction:column;gap:.1rem}
+.brand-name{font-family:"Playfair Display",serif;font-size:1.05rem;font-weight:500;color:var(--fg);letter-spacing:.01em;line-height:1}
+.brand-sub{font-size:.65rem;font-weight:400;color:var(--muted);letter-spacing:.18em;text-transform:uppercase}
+.nl{list-style:none;display:flex;align-items:center;gap:2.5rem}
+.nl a{color:var(--muted);font-size:.8rem;font-weight:400;text-decoration:none;transition:color .2s;letter-spacing:.03em}
+.nl a:hover{color:var(--fg)}
+.n-cta{background:var(--fg)!important;color:var(--cream)!important;padding:.55rem 1.5rem!important;font-size:.75rem!important;font-weight:500!important;letter-spacing:.08em!important;text-transform:uppercase!important;transition:all .25s!important;border-radius:2px}
+.n-cta:hover{background:var(--fg2)!important;transform:translateY(-1px);box-shadow:0 8px 28px rgba(26,46,26,.2)!important}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hbg span{width:22px;height:1.5px;background:var(--fg);border-radius:2px;transition:all .3s;display:block}
+.hbg.o span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hbg.o span:nth-child(2){opacity:0}
+.hbg.o span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 4rem 7rem;position:relative;overflow:hidden;background:var(--cream)}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(160deg,var(--cream) 0%,var(--cream2) 60%,var(--sage3) 100%);z-index:0}
+.hero-circle{position:absolute;right:-10%;top:5%;width:65vw;height:65vw;max-width:900px;max-height:900px;border-radius:50%;background:var(--fg);z-index:1;opacity:.06}
+.hero-circle2{position:absolute;right:5%;top:15%;width:40vw;height:40vw;max-width:600px;max-height:600px;border-radius:50%;border:1px solid rgba(26,46,26,.08);z-index:1}
+.hero-tag{position:relative;z-index:2;font-size:.68rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--moss);margin-bottom:2.8rem;display:flex;align-items:center;gap:.9rem;animation:up .8s ease both}
+.hero-tag::before{content:"";width:30px;height:1px;background:var(--moss);flex-shrink:0}
+@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero h1{font-family:"Playfair Display",serif;font-size:clamp(3.5rem,6vw,7rem);font-weight:400;line-height:1.05;color:var(--fg);letter-spacing:-.02em;max-width:820px;position:relative;z-index:2;animation:up .9s ease .1s both}
+.hero h1 em{font-style:italic;color:var(--moss)}
+.hero-row{display:flex;align-items:flex-end;justify-content:space-between;gap:4rem;margin-top:4rem;position:relative;z-index:2;flex-wrap:wrap;animation:up .9s ease .25s both}
+.hero-desc{max-width:440px}
+.hero-desc p{font-size:.95rem;color:var(--muted);line-height:1.85;font-weight:300;margin-bottom:2rem}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-dark{background:var(--fg);color:var(--cream);padding:.9rem 2.2rem;font-family:"Figtree",sans-serif;font-size:.78rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;gap:.6rem;transition:all .25s;border:none;cursor:pointer;border-radius:2px}
+.btn-dark:hover{background:var(--fg2);transform:translateY(-2px);box-shadow:0 14px 40px rgba(26,46,26,.25)}
+.btn-line{background:transparent;color:var(--fg);padding:.9rem 2.2rem;font-family:"Figtree",sans-serif;font-size:.78rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;gap:.6rem;border:1px solid rgba(26,46,26,.25);transition:all .25s;border-radius:2px}
+.btn-line:hover{border-color:var(--fg);background:rgba(26,46,26,.04)}
+.hero-stats{display:flex;gap:3.5rem;flex-shrink:0}
+.hstat{display:flex;flex-direction:column;gap:.3rem;text-align:right}
+.hstat-n{font-family:"Playfair Display",serif;font-size:2.4rem;font-weight:400;color:var(--fg);line-height:1;letter-spacing:-.03em}
+.hstat-l{font-size:.67rem;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* ── TICKER ── */
+.ticker{overflow:hidden;background:var(--fg);padding:.85rem 0;position:relative;z-index:1}
+.ti{display:flex;gap:3rem;animation:tick 35s linear infinite;white-space:nowrap}
+.tit{display:flex;align-items:center;gap:.8rem;font-size:.7rem;color:rgba(248,246,241,.3);font-weight:400;flex-shrink:0;letter-spacing:.14em;text-transform:uppercase}
+.tdot{color:var(--sage);opacity:.5;font-size:.6rem}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── SHARED ── */
+section{position:relative;z-index:1}
+.wrap{max-width:1140px;margin:0 auto;padding:0 4rem}
+.stag{font-size:.67rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--moss);margin-bottom:1.3rem;display:flex;align-items:center;gap:.8rem}
+.stag::before{content:"";width:22px;height:1px;background:var(--moss);flex-shrink:0}
+h2.st{font-family:"Playfair Display",serif;font-size:clamp(2.2rem,3.5vw,3.5rem);font-weight:400;line-height:1.12;color:var(--fg);letter-spacing:-.02em}
+h2.st em{font-style:italic;color:var(--moss)}
+.ssub{color:var(--muted);font-size:.92rem;line-height:1.82;max-width:460px;font-weight:300}
+
+/* ── ABOUT ── */
+#about{padding:9rem 0;background:var(--white)}
+.about-g{display:grid;grid-template-columns:5fr 7fr;gap:8rem;align-items:start}
+.about-left{position:sticky;top:9rem}
+.about-right{display:flex;flex-direction:column;gap:3.5rem}
+.about-block{padding-bottom:3.5rem;border-bottom:1px solid var(--borderl)}
+.about-block:last-child{border-bottom:none;padding-bottom:0}
+.ab-label{font-size:.67rem;letter-spacing:.18em;text-transform:uppercase;color:var(--moss);margin-bottom:.9rem;font-weight:400}
+.ab-title{font-family:"Playfair Display",serif;font-size:1.35rem;font-weight:400;color:var(--fg);margin-bottom:.75rem;letter-spacing:-.01em}
+.ab-text{font-size:.9rem;color:var(--muted);line-height:1.82;font-weight:300}
+
+/* ── SERVICES ── */
+#services{padding:9rem 0;background:var(--cream)}
+.services-intro{display:grid;grid-template-columns:1fr 1fr;gap:8rem;align-items:end;margin-bottom:5rem}
+.svc-g{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--border);border-left:1px solid var(--border)}
+.svc{border-right:1px solid var(--border);border-bottom:1px solid var(--border);padding:2.6rem 2.4rem;transition:background .3s;position:relative;overflow:hidden;cursor:default}
+.svc:hover{background:var(--fg)}
+.svc:hover .svc-n,.svc:hover .svc-title,.svc:hover .svc-text,.svc:hover .svc-tag{color:inherit}
+.svc:hover .svc-n{color:rgba(248,246,241,.2)}
+.svc:hover .svc-title{color:var(--white)}
+.svc:hover .svc-text{color:rgba(248,246,241,.45)}
+.svc:hover .svc-tag{color:var(--sage2);border-color:rgba(138,170,122,.25)}
+.svc-n{font-family:"Playfair Display",serif;font-size:.8rem;color:var(--stone);margin-bottom:1.8rem;display:block;letter-spacing:.06em;font-weight:400;transition:color .3s}
+.svc-title{font-family:"Playfair Display",serif;font-size:1.2rem;font-weight:400;color:var(--fg);margin-bottom:.7rem;letter-spacing:.01em;line-height:1.3;transition:color .3s}
+.svc-text{font-size:.83rem;color:var(--muted);line-height:1.8;margin-bottom:1.4rem;font-weight:300;transition:color .3s}
+.svc-tag{display:inline-block;font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;color:var(--moss);border:1px solid rgba(74,103,65,.2);padding:.22rem .75rem;transition:all .3s;border-radius:2px}
+
+/* ── PROCESS ── */
+#process{padding:9rem 0;background:var(--fg)}
+.process-head{display:grid;grid-template-columns:1fr 1fr;gap:8rem;align-items:end;margin-bottom:5rem}
+.process-head h2{color:var(--cream)}
+.process-head .stag{color:var(--sage2)}
+.process-head .stag::before{background:var(--sage)}
+.ph-sub{color:rgba(248,246,241,.4);font-size:.92rem;line-height:1.82;font-weight:300;max-width:400px}
+.proc-g{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(248,246,241,.08)}
+.proc{padding:3rem 2.5rem 3rem 0;border-right:1px solid rgba(248,246,241,.08)}
+.proc:last-child{border-right:none}
+.proc-step{font-family:"Playfair Display",serif;font-size:3.5rem;font-weight:400;color:rgba(248,246,241,.07);line-height:1;margin-bottom:2rem;letter-spacing:-.04em}
+.proc h3{font-family:"Playfair Display",serif;font-size:1.1rem;font-weight:400;color:var(--cream);margin-bottom:.75rem;letter-spacing:.01em}
+.proc p{font-size:.83rem;color:rgba(248,246,241,.38);line-height:1.8;font-weight:300}
+
+/* ── COMPARE ── */
+#compare{padding:9rem 0;background:var(--cream2)}
+.ctable{width:100%;border-collapse:collapse;margin-top:3.5rem}
+.ctable thead th{padding:1.1rem 1.8rem;text-align:left;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;font-weight:500;color:var(--muted);border-bottom:2px solid var(--border)}
+.ctable thead th:last-child{background:var(--fg);color:var(--sage2);border-bottom-color:var(--fg)}
+.ctable tbody td{padding:1.1rem 1.8rem;border-bottom:1px solid var(--borderl);font-size:.86rem;color:var(--text2);font-weight:300;line-height:1.5}
+.ctable tbody tr:last-child td{border-bottom:none}
+.ctable tbody td:first-child{font-weight:500;color:var(--text)}
+.ctable tbody td:last-child{background:rgba(26,46,26,.03)}
+.ctable tbody tr:hover td{background:rgba(26,46,26,.03)}
+.ctable tbody tr:hover td:last-child{background:rgba(26,46,26,.06)}
+.c-yes{color:#2a6040;font-weight:500}
+.c-no{color:var(--muted2)}
+
+/* ── TESTIMONIALS ── */
+#testimonials{padding:9rem 0;background:var(--white)}
+.test-head{display:grid;grid-template-columns:1fr 1fr;gap:8rem;align-items:end;margin-bottom:5rem}
+.test-sub{color:var(--muted);font-size:.92rem;line-height:1.82;font-weight:300;max-width:400px}
+.test-g{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--borderl)}
+.tcard{background:var(--white);padding:3rem;transition:all .3s}
+.tcard:hover{background:var(--cream);transform:translateY(-3px);box-shadow:0 20px 60px rgba(26,46,26,.07)}
+.tc-mark{font-family:"Playfair Display",serif;font-size:3.5rem;color:var(--sage3);line-height:.8;margin-bottom:1.5rem;font-weight:400}
+.tc-text{font-family:"Playfair Display",serif;font-size:1rem;font-weight:400;font-style:italic;color:var(--fg);line-height:1.7;margin-bottom:1.8rem}
+.tc-name{font-size:.75rem;font-weight:600;color:var(--text);margin-bottom:.18rem;letter-spacing:.02em}
+.tc-detail{font-size:.73rem;color:var(--muted);font-weight:300}
+.tc-stars{display:flex;gap:2px;margin-bottom:1.5rem}
+.tc-stars span{width:8px;height:8px;background:var(--sage);border-radius:50%}
+
+/* ── CREDENTIALS ── */
+#credentials{padding:5rem 0;background:var(--cream)}
+.cred-strip{display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;padding:2.5rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.cred{display:flex;flex-direction:column;gap:.3rem;text-align:center;flex:1;min-width:140px}
+.cred-name{font-size:.82rem;font-weight:500;color:var(--fg);letter-spacing:.02em}
+.cred-sub{font-size:.67rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;font-weight:300}
+.cred-sep{width:1px;height:40px;background:var(--borderl);flex-shrink:0}
+
+/* ── CONTACT ── */
+#contact{padding:9rem 0;background:var(--fg)}
+.contact-g{display:grid;grid-template-columns:1fr 1fr;gap:8rem;align-items:start}
+.contact-left h2{color:var(--cream)}
+.contact-left .stag{color:var(--sage2)}
+.contact-left .stag::before{background:var(--sage)}
+.contact-left p{color:rgba(248,246,241,.45);font-size:.92rem;line-height:1.85;font-weight:300;margin-top:1.2rem;max-width:360px}
+.ci-list{margin-top:3.5rem;display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(248,246,241,.08)}
+.ci{padding:1.5rem 0;border-bottom:1px solid rgba(248,246,241,.08);display:grid;grid-template-columns:100px 1fr;gap:1.5rem;align-items:center}
+.ci-label{font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(248,246,241,.3);font-weight:400}
+.ci-val{font-size:.9rem;color:rgba(248,246,241,.7);font-weight:300}
+.ci-val a{color:rgba(248,246,241,.7);text-decoration:none;transition:color .2s}
+.ci-val a:hover{color:var(--sage2)}
+.fgroup{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.3rem}
+.fgroup label{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(248,246,241,.35);font-weight:400}
+.fgroup input,.fgroup select,.fgroup textarea{background:rgba(248,246,241,.06);border:1px solid rgba(248,246,241,.1);padding:.85rem 1rem;font-family:"Figtree",sans-serif;font-size:.88rem;color:rgba(248,246,241,.85);outline:none;transition:border-color .2s;width:100%;border-radius:2px;-webkit-appearance:none}
+.fgroup input:focus,.fgroup select:focus,.fgroup textarea:focus{border-color:var(--sage)}
+.fgroup input::placeholder,.fgroup textarea::placeholder{color:rgba(248,246,241,.2)}
+.fgroup select option{background:var(--fg2);color:var(--cream)}
+.fgroup textarea{resize:vertical;min-height:100px;font-weight:300}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-note{font-size:.75rem;color:rgba(248,246,241,.25);line-height:1.75;font-weight:300;margin-bottom:1.5rem}
+.btn-light{background:var(--cream);color:var(--fg);padding:.95rem 2.4rem;font-family:"Figtree",sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:all .25s;width:100%;border-radius:2px}
+.btn-light:hover{background:var(--white);transform:translateY(-1px);box-shadow:0 10px 35px rgba(0,0,0,.3)}
+
+/* ── FOOTER ── */
+footer{background:var(--cream2);padding:0}
+.foot-top{border-top:1px solid var(--border);padding:3.5rem 4rem 3rem;max-width:100%;display:grid;grid-template-columns:2.5fr 1fr 1fr 1fr;gap:5rem;align-items:start}
+.foot-brand-name{font-family:"Playfair Display",serif;font-size:1rem;font-weight:500;color:var(--fg);letter-spacing:.01em}
+.foot-brand-sub{font-size:.63rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:.2rem;margin-bottom:1rem}
+.foot-desc{font-size:.82rem;color:var(--muted);line-height:1.78;font-weight:300}
+.foot-col h4{font-size:.63rem;letter-spacing:.18em;text-transform:uppercase;color:var(--fg);margin-bottom:1.2rem;font-weight:600}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:.65rem}
+.foot-col a{color:var(--muted);text-decoration:none;font-size:.82rem;font-weight:300;transition:color .2s;letter-spacing:.01em}
+.foot-col a:hover{color:var(--fg)}
+.foot-bottom{border-top:1px solid var(--borderl);padding:2rem 4rem;display:flex;align-items:flex-start;justify-content:space-between;gap:3rem;flex-wrap:wrap}
+.foot-legal{font-size:.72rem;color:var(--muted2);line-height:1.75;max-width:700px;font-weight:300}
+.foot-copy{font-size:.72rem;color:var(--muted2);font-weight:300;white-space:nowrap;flex-shrink:0;padding-top:.1rem}
+
+/* ── PROGRESS ── */
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--moss);z-index:600;width:0%;transition:width .1s linear}
+
+/* ── FADE UP ── */
+.fu{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.fu.v{opacity:1;transform:translateY(0)}
+
+/* ── MOBILE ── */
+@media(max-width:1024px){
+  nav{padding:1.2rem 2rem}
+  nav.s{padding:.9rem 2rem}
+  .nl{display:none;flex-direction:column;position:fixed;top:64px;left:0;right:0;background:rgba(248,246,241,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--borderl);padding:2rem;gap:1.5rem}
+  .nl.open{display:flex}
+  .nl a{color:var(--fg)!important;font-size:.95rem}
+  .hbg{display:flex}
+  .hero{padding:0 2rem 5rem}
+  .hero h1{font-size:clamp(2.8rem,8vw,5rem)}
+  .hero-stats{gap:2rem}
+  .wrap{padding:0 2rem}
+  .about-g,.services-intro,.process-head,.test-head,.contact-g{grid-template-columns:1fr;gap:3rem}
+  .about-left{position:static}
+  .svc-g{grid-template-columns:1fr 1fr}
+  .proc-g{grid-template-columns:1fr 1fr;gap:2rem}
+  .foot-top{grid-template-columns:1fr 1fr;gap:3rem}
+  .foot-bottom{padding:2rem}
+}
+@media(max-width:640px){
+  .svc-g{grid-template-columns:1fr}
+  .proc-g{grid-template-columns:1fr}
+  .test-g{grid-template-columns:1fr}
+  .hero-row{flex-direction:column;align-items:flex-start;gap:2rem}
+  .hero-stats{flex-direction:row}
+  .hero-btns{flex-direction:column;align-items:flex-start}
+  .form-grid{grid-template-columns:1fr}
+  .foot-top{grid-template-columns:1fr}
+  .foot-bottom{flex-direction:column;gap:1.5rem;padding:1.5rem 2rem}
+  .cred-strip{justify-content:center;gap:2.5rem}
+  .cred-sep{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="brand">
+    <div class="brand-name">J.P. Bergman & Company</div>
+    <div class="brand-sub">Independent Mortgage Advisers · Melbourne</div>
+  </a>
+  <ul class="nl" id="nl">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#compare">Why a Broker</a></li>
+    <li><a href="#testimonials">Clients</a></li>
+    <li><a href="#contact" class="n-cta">Enquire</a></li>
+  </ul>
+  <div class="hbg" id="hbg"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-circle"></div>
+  <div class="hero-circle2"></div>
+  <div class="hero-tag">Independent mortgage broking · Est. Melbourne 2004</div>
+  <h1>We answer to<br>our clients <em>alone.</em></h1>
+  <div class="hero-row">
+    <div class="hero-desc">
+      <p>J.P. Bergman & Company has provided independent mortgage broking to Melbourne families, investors, and businesses for over twenty years. No bank ownership. No preferred lender arrangements.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-dark">Request a Consultation</a>
+        <a href="#services" class="btn-line">Our Services</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat">
+        <div class="hstat-n">40+</div>
+        <div class="hstat-l">Lenders on Panel</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-n">20</div>
+        <div class="hstat-l">Years Independent</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-n">$0</div>
+        <div class="hstat-l">Cost to Borrower</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker"><div class="ti">
+  <span class="tit"><span class="tdot">◆</span>MFAA Member</span>
+  <span class="tit"><span class="tdot">◆</span>ACL Licensed</span>
+  <span class="tit"><span class="tdot">◆</span>Best Interests Duty</span>
+  <span class="tit"><span class="tdot">◆</span>40+ Lenders on Panel</span>
+  <span class="tit"><span class="tdot">◆</span>AFCA Member</span>
+  <span class="tit"><span class="tdot">◆</span>No Cost to Borrower</span>
+  <span class="tit"><span class="tdot">◆</span>Established 2004</span>
+  <span class="tit"><span class="tdot">◆</span>Direct Principal Access</span>
+  <span class="tit"><span class="tdot">◆</span>Annual Rate Review</span>
+  <span class="tit"><span class="tdot">◆</span>MFAA Member</span>
+  <span class="tit"><span class="tdot">◆</span>ACL Licensed</span>
+  <span class="tit"><span class="tdot">◆</span>Best Interests Duty</span>
+  <span class="tit"><span class="tdot">◆</span>40+ Lenders on Panel</span>
+  <span class="tit"><span class="tdot">◆</span>AFCA Member</span>
+  <span class="tit"><span class="tdot">◆</span>No Cost to Borrower</span>
+  <span class="tit"><span class="tdot">◆</span>Established 2004</span>
+  <span class="tit"><span class="tdot">◆</span>Direct Principal Access</span>
+  <span class="tit"><span class="tdot">◆</span>Annual Rate Review</span>
+</div></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-g">
+      <div class="about-left">
+        <div class="fu"><div class="stag">The Practice</div>
+          <h2 class="st">Twenty years of independent<br><em>counsel.</em></h2>
+          <p class="ssub" style="margin-top:1.2rem">Founded in 2004 on a single premise — that most Australians receive mortgage advice shaped by the broker's commercial interests, not their own.</p>
+        </div>
+        <blockquote style="margin-top:3rem;padding:2rem 0 0;border-top:1px solid var(--borderl)" class="fu">
+          <p style="font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;color:var(--fg);line-height:1.6;font-weight:400">"A broker's first obligation is not to a lender. It is to the client — and to the years of financial consequence that follow."</p>
+          <cite style="display:block;margin-top:.9rem;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--moss);font-style:normal">J.P. Bergman, Founding Principal</cite>
+        </blockquote>
+      </div>
+      <div class="about-right">
+        <div class="about-block fu">
+          <div class="ab-label">Independence</div>
+          <div class="ab-title">No bank ownership. No volume bonuses.</div>
+          <p class="ab-text">Access to more than forty lenders — spanning major banks, mutual institutions, and non-bank specialists — ensures every recommendation is made on objective merit alone. No preferred lender arrangements. No commercial incentives to place loans with particular institutions.</p>
+        </div>
+        <div class="about-block fu">
+          <div class="ab-label">Selectivity</div>
+          <div class="ab-title">Deliberately small. By design.</div>
+          <p class="ab-text">The practice has deliberately remained small. Selectivity in clientele permits a depth of service that volume-driven operations cannot replicate. When you engage J.P. Bergman, you deal with the principal directly — not a team, not a processing centre.</p>
+        </div>
+        <div class="about-block fu">
+          <div class="ab-label">Accountability</div>
+          <div class="ab-title">One adviser. One point of contact. Always.</div>
+          <p class="ab-text">The same person who assesses your file submits it, negotiates on your behalf, coordinates settlement, and reviews your loan annually thereafter. Rate complacency is the most common cost in mortgage management — this practice eliminates it.</p>
+        </div>
+        <div class="about-block fu">
+          <div class="ab-label">Lender Panel</div>
+          <div class="ab-title">The full market, not a curated shelf.</div>
+          <p class="ab-text">Commonwealth Bank, Westpac, ANZ, NAB, Macquarie, ING, Suncorp, Bank of Melbourne — plus 32 specialist and non-bank lenders. Options are never constrained by what generates the highest trail commission.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="services-intro">
+      <div class="fu">
+        <div class="stag">Services</div>
+        <h2 class="st">A complete range of<br><em>lending solutions.</em></h2>
+      </div>
+      <div class="fu" style="padding-bottom:.5rem">
+        <p class="ssub">Each engagement begins with your balance sheet — not a product shelf. No service is ever recommended because it benefits the practice commercially.</p>
+      </div>
+    </div>
+    <div class="svc-g">
+      <div class="svc fu">
+        <span class="svc-n">i</span>
+        <div class="svc-title">Residential Finance</div>
+        <p class="svc-text">Owner-occupied lending from first home to established family residence. Rate and structure assessed across the full lender panel on merit alone.</p>
+        <span class="svc-tag">Owner-Occupied Purchase</span>
+      </div>
+      <div class="svc fu">
+        <span class="svc-n">ii</span>
+        <div class="svc-title">Refinancing & Restructure</div>
+        <p class="svc-text">Existing debt reviewed with forensic attention to rate, structure, and serviceability. Clients consistently save 40–120 basis points through active management.</p>
+        <span class="svc-tag">Rate & Structure Review</span>
+      </div>
+      <div class="svc fu">
+        <span class="svc-n">iii</span>
+        <div class="svc-title">Investment Lending</div>
+        <p class="svc-text">Portfolio structuring to preserve borrowing capacity. Asset protection strategy and lender selection calibrated to long-term growth objectives.</p>
+        <span class="svc-tag">Portfolio Growth</span>
+      </div>
+      <div class="svc fu">
+        <span class="svc-n">iv</span>
+        <div class="svc-title">Commercial Finance</div>
+        <p class="svc-text">Business premises, commercial property, and asset-backed lending. Relationships with specialist commercial lenders beyond the standard retail banking panel.</p>
+        <span class="svc-tag">Business & Commercial</span>
+      </div>
+      <div class="svc fu">
+        <span class="svc-n">v</span>
+        <div class="svc-title">Construction Loans</div>
+        <p class="svc-text">Progressive drawdown facilities for new builds and major renovations. Full coordination with builders, valuers, and lenders throughout the timeline.</p>
+        <span class="svc-tag">New Build & Renovation</span>
+      </div>
+      <div class="svc fu">
+        <span class="svc-n">vi</span>
+        <div class="svc-title">SMSF Lending</div>
+        <p class="svc-text">Superannuation fund borrowing for property acquisition. Specialist lenders with compliant limited recourse structures and full trustee coordination.</p>
+        <span class="svc-tag">Superannuation Fund</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="wrap">
+    <div class="process-head">
+      <div class="fu">
+        <div class="stag">Process</div>
+        <h2 class="st">From first conversation<br>to settlement — <em>and beyond.</em></h2>
+      </div>
+      <p class="ph-sub fu">A structured process built around your timeline, your objectives, and your right to understand every decision made on your behalf.</p>
+    </div>
+    <div class="proc-g">
+      <div class="proc fu">
+        <div class="proc-step">I</div>
+        <h3>Discovery & Assessment</h3>
+        <p>Your position and objectives understood in full. No credit enquiries at this stage. Strategy is set before any lender is approached.</p>
+      </div>
+      <div class="proc fu">
+        <div class="proc-step">II</div>
+        <h3>Lender Selection</h3>
+        <p>Your file assessed against suitable institutions. Rate is one variable — serviceability treatment, policy flexibility, and approval timeframes carry equal weight.</p>
+      </div>
+      <div class="proc fu">
+        <div class="proc-step">III</div>
+        <h3>Application & Negotiation</h3>
+        <p>Documentation collated, application submitted, rate negotiated on your behalf. Direct lender relationships allow access to pricing unavailable through standard lodgement.</p>
+      </div>
+      <div class="proc fu">
+        <div class="proc-step">IV</div>
+        <h3>Settlement & Annual Review</h3>
+        <p>Full coordination through to settlement. Your loan reviewed annually against the market — rate complacency costs most borrowers, and this practice prevents it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section id="compare">
+  <div class="wrap">
+    <div class="fu">
+      <div class="stag">Why a Broker</div>
+      <h2 class="st">Bank direct vs. J.P. Bergman —<br><em>a plain comparison.</em></h2>
+    </div>
+    <div class="fu">
+      <table class="ctable">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Going Direct to a Bank</th>
+            <th>J.P. Bergman & Company</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Lenders considered</td><td class="c-no">1 — their own products only</td><td class="c-yes">40+ lenders assessed on your behalf</td></tr>
+          <tr><td>Rate negotiation</td><td class="c-no">Standard advertised rate</td><td class="c-yes">Negotiated via direct lender relationships</td></tr>
+          <tr><td>Legal obligation to you</td><td class="c-no">To sell their products</td><td class="c-yes">Best Interests Duty — required by law</td></tr>
+          <tr><td>Portfolio structuring</td><td class="c-no">Limited to one institution</td><td class="c-yes">Cross-lender strategy for investors</td></tr>
+          <tr><td>Ongoing rate review</td><td class="c-no">Not provided</td><td class="c-yes">Annual review included as standard</td></tr>
+          <tr><td>Broker fee to you</td><td style="color:var(--muted)">—</td><td class="c-yes">$0 — paid by the lender at settlement</td></tr>
+          <tr><td>SMSF & commercial access</td><td class="c-no">Rarely available</td><td class="c-yes">Specialist lender access included</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="wrap">
+    <div class="test-head">
+      <div class="fu">
+        <div class="stag">Client Accounts</div>
+        <h2 class="st">What our clients <em>say.</em></h2>
+      </div>
+      <p class="test-sub fu">Engagements handled with discretion, precision, and a genuine orientation toward the client's long-term financial position.</p>
+    </div>
+    <div class="test-g">
+      <div class="tcard fu">
+        <div class="tc-mark">"</div>
+        <div class="tc-stars"><span></span><span></span><span></span><span></span><span></span></div>
+        <p class="tc-text">"James came recommended by our accountant and delivered precisely what was described. Clean process, no surprises, and a rate our bank would not match. Saving $430 per month."</p>
+        <div class="tc-name">Michael & Claire D.</div>
+        <div class="tc-detail">Toorak · Owner-Occupied Refinance</div>
+      </div>
+      <div class="tcard fu">
+        <div class="tc-mark">"</div>
+        <div class="tc-stars"><span></span><span></span><span></span><span></span><span></span></div>
+        <p class="tc-text">"Our investment portfolio had grown to the point our previous broker struggled with the complexity. J.P. Bergman restructured three loans simultaneously and preserved our borrowing capacity."</p>
+        <div class="tc-name">Robert A.</div>
+        <div class="tc-detail">South Yarra · Investment Portfolio Restructure</div>
+      </div>
+      <div class="tcard fu">
+        <div class="tc-mark">"</div>
+        <div class="tc-stars"><span></span><span></span><span></span><span></span><span></span></div>
+        <p class="tc-text">"SMSF lending is opaque and most brokers avoid it. James understood the lender, the structure, and trustee requirements precisely. We settled within six weeks of our first meeting."</p>
+        <div class="tc-name">Dr. Sandra K.</div>
+        <div class="tc-detail">Brighton · SMSF Property Acquisition</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section id="credentials">
+  <div class="wrap">
+    <div class="cred-strip fu">
+      <div class="cred"><div class="cred-name">ACL Holder</div><div class="cred-sub">Australian Credit Licence</div></div>
+      <div class="cred-sep"></div>
+      <div class="cred"><div class="cred-name">MFAA Member</div><div class="cred-sub">Code of Practice</div></div>
+      <div class="cred-sep"></div>
+      <div class="cred"><div class="cred-name">Best Interests Duty</div><div class="cred-sub">Legally Compliant</div></div>
+      <div class="cred-sep"></div>
+      <div class="cred"><div class="cred-name">AFCA Member</div><div class="cred-sub">External Dispute Resolution</div></div>
+      <div class="cred-sep"></div>
+      <div class="cred"><div class="cred-name">Privacy Act 1988</div><div class="cred-sub">Cth Compliant</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-g">
+      <div class="contact-left">
+        <div class="fu">
+          <div class="stag">Get in Touch</div>
+          <h2 class="st">Begin a <em>confidential</em><br>conversation.</h2>
+          <p>All enquiries are handled personally by James Bergman and responded to within one business day. No credit checks at this stage.</p>
+        </div>
+        <div class="ci-list fu">
+          <div class="ci"><div class="ci-label">Telephone</div><div class="ci-val"><a href="tel:+61300000000">+61 3 0000 0000</a></div></div>
+          <div class="ci"><div class="ci-label">Email</div><div class="ci-val"><a href="mailto:james@jpbergman.com.au">james@jpbergman.com.au</a></div></div>
+          <div class="ci"><div class="ci-label">Location</div><div class="ci-val">Melbourne, Victoria · By appointment</div></div>
+          <div class="ci"><div class="ci-label">Hours</div><div class="ci-val">Mon–Fri 8:30 am–6:00 pm · Sat by arrangement</div></div>
+        </div>
+      </div>
+      <div class="fu">
+        <div class="form-grid" style="margin-bottom:1.3rem">
+          <div class="fgroup"><label>First Name</label><input type="text" placeholder="James"/></div>
+          <div class="fgroup"><label>Last Name</label><input type="text" placeholder="Wilson"/></div>
+        </div>
+        <div class="form-grid" style="margin-bottom:1.3rem">
+          <div class="fgroup"><label>Email</label><input type="email" placeholder="james@example.com"/></div>
+          <div class="fgroup"><label>Phone</label><input type="tel" placeholder="+61 4XX XXX XXX"/></div>
+        </div>
+        <div class="fgroup">
+          <label>Nature of Enquiry</label>
+          <select>
+            <option value="">Select a service area</option>
+            <option>Residential Finance — Purchase</option>
+            <option>Refinancing & Rate Review</option>
+            <option>Investment Lending</option>
+            <option>Commercial Finance</option>
+            <option>Construction Loan</option>
+            <option>SMSF Lending</option>
+            <option>General Enquiry</option>
+          </select>
+        </div>
+        <div class="fgroup">
+          <label>Brief Overview</label>
+          <textarea placeholder="Please describe your situation and what you're looking to achieve…"></textarea>
+        </div>
+        <p class="form-note">Your enquiry is handled in strict confidence. No credit checks are performed at this stage.</p>
+        <button class="btn-light" onclick="submitForm(this)">Submit Enquiry</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-top">
+    <div>
+      <div class="foot-brand-name">J.P. Bergman & Company</div>
+      <div class="foot-brand-sub">Independent Mortgage Advisers · Melbourne · Est. 2004</div>
+      <p class="foot-desc">Independent mortgage broking for Melbourne families, investors, and businesses. No bank ownership. No preferred lender arrangements. Your interests, always first.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Residential Finance</a></li>
+        <li><a href="#services">Investment Lending</a></li>
+        <li><a href="#services">Refinancing</a></li>
+        <li><a href="#services">Commercial Finance</a></li>
+        <li><a href="#services">Construction Loans</a></li>
+        <li><a href="#services">SMSF Lending</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>The Practice</h4>
+      <ul>
+        <li><a href="#about">Our Approach</a></li>
+        <li><a href="#process">Our Process</a></li>
+        <li><a href="#compare">Why a Broker</a></li>
+        <li><a href="#testimonials">Client Accounts</a></li>
+        <li><a href="#contact">Enquire Now</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <p class="foot-legal">J.P. Bergman & Company is a credit representative of [Aggregator Name] Pty Ltd (ACL: XXXXXX). Member of the Mortgage & Finance Association of Australia (MFAA). Credit services subject to lender terms, conditions, and lending criteria. Information on this website is general in nature and does not constitute financial, legal, or tax advice. Member of the Australian Financial Complaints Authority (AFCA). Indicative rates are for general information purposes only. Credit Guide and Privacy Policy available upon request. ABN: XX XXX XXX XXX · Melbourne, Victoria, Australia.</p>
+    <p class="foot-copy">© 2026 J.P. Bergman & Company</p>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  const el=document.getElementById('progress');
+  if(el) el.style.width=Math.min((scrollY/(document.body.scrollHeight-innerHeight))*100,100)+'%';
+},{passive:true});
+
+const hbg=document.getElementById('hbg'),nl=document.getElementById('nl');
+hbg.addEventListener('click',()=>{hbg.classList.toggle('o');nl.classList.toggle('open');});
+nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{hbg.classList.remove('o');nl.classList.remove('open');}));
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('s',scrollY>60),{passive:true});
+
+const obs=new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      const idx=Array.from(e.target.parentElement.querySelectorAll('.fu')).indexOf(e.target);
+      setTimeout(()=>e.target.classList.add('v'),idx*80);
+    }
+  });
+},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.fu').forEach(el=>obs.observe(el));
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',function(e){
+  const t=document.querySelector(this.getAttribute('href'));
+  if(!t)return;e.preventDefault();
+  window.scrollTo({top:t.getBoundingClientRect().top+pageYOffset-80,behavior:'smooth'});
+}));
+
+function submitForm(btn){
+  btn.textContent='✓ Enquiry received — James will respond within one business day.';
+  btn.style.background='var(--sage2)';btn.style.color='var(--fg)';btn.disabled=true;
+}
+</script>
+</body>
+</html>
